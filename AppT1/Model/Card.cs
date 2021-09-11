@@ -6,8 +6,8 @@ namespace AppT1.Model
 {
     public class Card
     {
-        private string value { get; }
-        private Suit symbol { get; }
+        public string value { get; }
+        public Suit symbol { get; }
 
         private short rank { get; }
 

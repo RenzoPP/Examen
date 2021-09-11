@@ -7,12 +7,19 @@ namespace AppT1
 {
     public class Player
     {
-        public Player(string name)
+        public Player(string name, Hand hand)
         {
             this.name = name;
+            this.hand = hand;
         }
 
         private String name { get; set; }
-        private Deck deck { get; set; }
+        private Hand hand { get; set; }
+
+        public void Print()
+        {
+            Console.WriteLine($"{name} with");
+            hand.Print();
+        }
     }
 }

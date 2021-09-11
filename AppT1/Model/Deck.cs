@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppT1.Handler;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,9 +8,12 @@ namespace AppT1.Model
     public class Deck
     {
         private List<Card> cards = new List<Card>();
+        private int index = 0;
 
-        public Deck()
+        public Deck(int index)
         {
+            this.index = index;
+
             for(int s = 0; s < 4; s++)
             {
                 cards.Add(new Card("2", (Suit) s, 2));
@@ -28,7 +32,7 @@ namespace AppT1.Model
             }
         }
 
-        public void shuffle()
+        public void Shuffle()
         {
             Random random = new Random();
             
@@ -41,12 +45,35 @@ namespace AppT1.Model
             }
         }
 
-        public void print()
+        public void Print()
         {
             foreach(var card in cards)
             {
                 Console.WriteLine(card.ToString());
             }
+        }
+
+        public Card Deal()
+        {
+            if(index >= cards.Count)
+            {
+                throw new CardsNotAvailableException();
+            }
+
+            Card card = cards[index++];
+            return card;
+        }
+
+        public Hand DealHand()
+        {
+            List<Card> hand = new List<Card>();
+
+            for(int i = 0; i < 5; i++)
+            {
+                hand.Add(this.Deal());
+            }
+
+            return new Hand(hand);
         }
     }
 }

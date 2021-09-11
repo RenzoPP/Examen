@@ -13,8 +13,6 @@ namespace AppT1
         {
             int numPlayers = SelectNumPlayers();
 
-            Deck deck = new Deck();
-
             try
             {
                 VerifyNumPlayers(numPlayers);
