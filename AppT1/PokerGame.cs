@@ -7,16 +7,21 @@ namespace AppT1
 {
     public class PokerGame
     {
-        public static void Start(List<Player> players)
+        private static List<Player> players;
+        public static void Start(int numPlayers)
         {
-            if (players.Count < 2)
-            {
-                throw new NotEnoughPlayersException();
-            }
+            players = new List<Player>(new Player[numPlayers]);
+            string name;
 
-            else if (players.Count > 5)
+            for (int i = 0; i < numPlayers; i++)
             {
-                throw new ReachMaxPlayersException();
+                Console.WriteLine("");
+                Console.WriteLine("Ingrese Datos del Jugador");
+                Console.WriteLine($"Jugador {i + 1}");
+                Console.Write("Nombre: ");
+                name = Convert.ToString(Console.ReadLine());
+
+                players.Add(new Player(name));
             }
         }
     }

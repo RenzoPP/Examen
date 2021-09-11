@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppT1.Model;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +13,6 @@ namespace AppT1
         }
 
         private String name { get; set; }
+        private Deck deck { get; set; }
     }
 }

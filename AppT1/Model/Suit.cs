@@ -1,5 +1,5 @@
 ﻿namespace AppT1
 {
-    enum Suit { Diamonds, Hearts, Spades, Clubs }
+    public enum Suit { Diamonds, Hearts, Spades, Clubs }
 }
 
